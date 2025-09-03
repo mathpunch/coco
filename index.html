@@ -6,15 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --brown-dark: #4b2e14;
-      --brown: #7d5632;
-      --brown-light: #b5885a;
-      --tan: #e7ceb0;
-      --cream: #f9f4e9;
-      --shadow: 0 4px 24px rgba(75, 46, 20, 0.15);
+      --brown-dark: #43270a;
+      --brown: #6b411c;
+      --brown-light: #a87a4a;
+      --tan: #e9d5b3;
+      --cream: #f8f6f3;
       --accent: #c8a46b;
+      --shadow: 0 4px 24px rgba(107,65,28,0.12);
     }
-    /* Parallax header effect */
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -39,6 +38,7 @@
       padding: 2.5rem 0 1rem 0;
       margin-bottom: 0.5rem;
       animation: fadein 1.3s cubic-bezier(.42,0,.58,1);
+      box-shadow: 0 2px 18px #43270a33;
     }
     header h1 {
       font-size: 3rem;
@@ -55,7 +55,7 @@
       text-shadow: 0 1px 8px var(--brown);
     }
     main {
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto 2.5rem auto;
       background: var(--cream);
       border-radius: 18px;
@@ -86,10 +86,11 @@
     ul {
       list-style: none;
       padding-left: 0;
+      margin: 0;
     }
     li {
       margin-bottom: 0.8em;
-      font-size: 1.07em;
+      font-size: 1.08em;
       position: relative;
       padding-left: 1.5em;
     }
@@ -112,18 +113,18 @@
       width: 170px;
       height: 170px;
       object-fit: cover;
-      box-shadow: 0 4px 24px #5c3d1a44, 0 0 0 8px var(--brown-light);
+      box-shadow: 0 4px 24px #6b411c44, 0 0 0 8px var(--brown-light);
       background: var(--brown-light);
       border: 4px solid var(--brown);
       transition: box-shadow .3s, border-color .3s;
       animation: fadein 1.7s cubic-bezier(.42,0,.58,1);
     }
     .profile-pic:hover {
-      box-shadow: 0 8px 40px #4b2e1466, 0 0 0 12px var(--accent);
+      box-shadow: 0 8px 40px #6b411c66, 0 0 0 12px var(--accent);
       border-color: var(--accent);
     }
     .bio {
-      font-size: 1.13rem;
+      font-size: 1.15rem;
       line-height: 1.7;
       color: var(--brown-dark);
       margin-bottom: 2rem;
@@ -131,20 +132,20 @@
       background: linear-gradient(90deg, var(--tan) 80%, var(--brown-light) 100%);
       padding: 1rem 1.1rem;
       border-radius: 12px;
-      box-shadow: 0 2px 12px #b5885a22;
+      box-shadow: 0 2px 12px #a87a4a22;
       animation: fadein 1.9s cubic-bezier(.42,0,.58,1);
     }
     .facts {
-      background: linear-gradient(120deg, #e7ceb0 80%, #d1ab7a 100%);
+      background: linear-gradient(120deg, #e9d5b3 80%, #c8a46b 100%);
       border-radius: 12px;
       padding: 1.3rem 1.1rem;
       margin-bottom: 1rem;
-      box-shadow: 0 1px 12px #b5885a44;
+      box-shadow: 0 1px 12px #a87a4a44;
       border-left: 5px solid var(--brown);
       transition: box-shadow .3s;
     }
     .facts:hover {
-      box-shadow: 0 4px 32px #7d563255;
+      box-shadow: 0 4px 32px #6b411c55;
     }
     .gallery {
       display: flex;
@@ -156,7 +157,7 @@
     .gallery img {
       border-radius: 12px;
       width: 110px;
-      box-shadow: 0 2px 8px #b5885a55;
+      box-shadow: 0 2px 8px #a87a4a55;
       border: 3px solid var(--brown-light);
       transition: transform .22s, box-shadow .22s;
       filter: sepia(0.22) contrast(1.04);
@@ -164,18 +165,17 @@
     }
     .gallery img:hover {
       transform: scale(1.07) rotate(-2deg);
-      box-shadow: 0 6px 40px #b5885a88;
+      box-shadow: 0 6px 40px #a87a4a88;
       filter: sepia(0.12) contrast(1.13);
     }
-    .footer {
-      text-align: center;
-      color: var(--brown);
-      font-size: 1rem;
-      padding: 2rem 0 1rem 0;
-      opacity: 0.93;
+    /* Decorative brown accent line under header */
+    .accent-bar {
+      width: 120px;
+      height: 5px;
       background: linear-gradient(90deg, var(--brown-dark), var(--brown-light) 100%);
-      margin-top: -40px;
-      letter-spacing: 1px;
+      margin: -15px auto 30px auto;
+      border-radius: 7px;
+      box-shadow: 0 2px 10px #6b411c22;
     }
     /* Responsive */
     @media (max-width: 700px) {
@@ -183,6 +183,7 @@
       header h1 { font-size: 2.1rem; }
       .profile-pic { width: 120px; height: 120px; }
       .gallery img { width: 70px; }
+      .accent-bar { width: 80px; height: 4px; margin-bottom: 18px;}
     }
   </style>
 </head>
@@ -190,6 +191,7 @@
   <div class="header-bg"></div>
   <header>
     <h1>Coco the Guinea Pig</h1>
+    <div class="accent-bar"></div>
     <h2>Meet the calm, cuddly queen of hideouts</h2>
   </header>
   <main>
@@ -233,9 +235,6 @@
       </div>
     </section>
   </main>
-  <div class="footer">
-    &copy; 2025 Coco's Website. Made with love for Coco the guinea pig.
-  </div>
   <script>
     // Subtle parallax effect for header background
     window.addEventListener('scroll', function() {
